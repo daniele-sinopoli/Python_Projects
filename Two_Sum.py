@@ -22,10 +22,10 @@ from unittest.mock import numerics
 class Solution:
     def twoSum(self, nums: list[int], target: int) -> list[int]:
         for i,n_analizzato in enumerate(nums):
-            obbiettivo= target - n_analizzato
+            complementare= target - n_analizzato
 
             for j in range(i+1, len(nums)):
-                if nums[j] == obbiettivo:
+                if nums[j] == complementare:
                     return [i, j]
 
 
@@ -38,6 +38,20 @@ if __name__=="__main__":
 
     result= solution.twoSum(numbers,target)
     print(result)
+
+
+"""
+versione O(n):
+
+visited= {}
+
+for i , num in enumerate(nums):
+    complementare= target-num
+    
+    if complementare in visited:
+        return [visited[complementare],i]
+    visited[num]=i
+"""
 
 
 
